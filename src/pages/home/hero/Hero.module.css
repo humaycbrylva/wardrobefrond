@@ -1,7 +1,108 @@
-.maindiv{
-    background-image: url(https://i.pinimg.com/736x/16/2b/2e/162b2edc324dc41db673544c64477a54.jpg);
-
-    background-size: cover;
+.background {
+    
+    background-size: cover;  /* Şəkilin tam ekranı əhatə etməsi üçün */
+ /* Şəkilin ortada olması üçün */
+    height: 95vh;  /* Hündürlüyü tam ekran hündürlüyü olaraq təyin edir */
     width: 100%;
-    height: 100vh;
+    
+   
+}
+
+.background {
+ 
+ flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  width: 80%;
+  max-width: 900px;
+  
+  padding: 40px;
+  border-radius: 12px;
+  
+}
+
+.slide {
+  text-align: center;
+}
+
+.slide h2 {
+  font-size: 28px;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.slide p {
+  font-size: 16px;
+  color: #333;
+}
+
+
+
+.buttonBox {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.heroButton {
+  padding: 12px 24px;
+  background-color: #6C63FF;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.heroButton:hover {
+  background-color: #594ee3;
+}
+
+
+
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+/* Başlıq üçün (h2) */
+.box h2 {
+  font-size: 32px;
+  color: #ffffff;
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1px;
+}
+
+/* Açıqlama yazısı üçün (p) */
+.slide p {
+  font-size: 20px;
+  color: #444;
+  font-family: 'Roboto', sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
