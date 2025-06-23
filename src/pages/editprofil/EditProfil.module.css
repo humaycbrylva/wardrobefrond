@@ -1,0 +1,77 @@
+.editProfileContainer {
+  height: 100vh;
+  background-color: #f3e8ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.editProfileForm {
+  margin-top: 10%;
+  background-color: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+.editProfileForm h2 {
+  color: #5e3ea1;
+  margin-bottom: 20px;
+}
+
+.editProfileForm input,
+.editProfileForm select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.editProfileForm button {
+  width: 100%;
+  padding: 12px;
+  background-color: #8a2be2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.editProfileForm button:hover {
+  background-color: #6a1cb2;
+}
+
+.profilePreviewImage {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  border: 2px solid #8a2be2;
+}
+
+.successMessage {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.errorMessage {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}

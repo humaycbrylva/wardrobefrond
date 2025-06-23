@@ -1,0 +1,74 @@
+.container {
+  display: flex;
+  gap: 30px;
+  padding: 40px;
+}
+
+.sidebar {
+  width: 220px;
+  background: #f3e9ff;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 16px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #5f3dc4;
+  transition: 0.3s;
+}
+
+.sidebar li:hover,
+.sidebar .active {
+  color: #7f5af0;
+  transform: translateX(5px);
+}
+
+.contentWrapper {
+  flex: 1;
+  background: linear-gradient(to right, #f3e9ff, #e0d4f7);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.options button {
+  background-color: white;
+  border: 2px solid #c9b3f5;
+  color: #5f3dc4;
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.options button:hover,
+.optionActive {
+  background-color: #d8c6f0;
+}
+
+.result {
+  margin-top: 30px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+
+

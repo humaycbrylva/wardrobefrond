@@ -1,0 +1,68 @@
+.otpContainer {
+  height: 100vh;
+  background-color: #f3e8ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.otpForm {
+  background-color: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.otpForm h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #7b4bb7;
+}
+
+.otpForm input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.otpForm button {
+  width: 100%;
+  padding: 12px;
+  background-color: #8a2be2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.otpForm button:hover {
+  background-color: #6a1cb2;
+}
+
+.successMessage {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.errorMessage {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  text-align: center;
+}

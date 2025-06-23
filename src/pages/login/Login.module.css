@@ -1,0 +1,83 @@
+.loginContainer {
+  height: 100vh;
+  background-color: #e6e6fa; /* açıq bənövşəyi */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginForm {
+  background-color: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.loginForm h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #5e3ea1;
+}
+
+.loginForm input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.loginForm button {
+  width: 100%;
+  padding: 12px;
+  background-color: #9370db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.loginForm button:hover {
+  background-color: #7b68ee;
+}
+
+
+.successMessage {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.errorMessage {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+.forgotPasswordWrapper {
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.forgotPasswordLink {
+  color: #6a1b9a;
+  text-decoration: underline;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
