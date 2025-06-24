@@ -21,6 +21,7 @@ const Login = () => {
       setMessage(res.data.message);
       setMessageType('success');
       localStorage.setItem('accessToken', res.data.token);
+      localStorage.setItem('userId', res.data.user._id); 
       setTimeout(() => navigate('/profile'), 1000);
     } catch (err) {
       setMessage(err.response?.data?.message || 'Giriş zamanı xəta baş verdi');
@@ -31,7 +32,7 @@ const Login = () => {
   return (
     <div className={styles.loginContainer}>
       <form className={styles.loginForm} onSubmit={handleLogin}>
-        <h2>Giriş</h2>
+        <h2>Login</h2>
 
         {message && (
           <div
@@ -54,7 +55,7 @@ const Login = () => {
         />
         <input
           type="password"
-          placeholder="Şifrə"
+          placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required

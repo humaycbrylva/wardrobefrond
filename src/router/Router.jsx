@@ -11,6 +11,7 @@ import OtpVerify from '../pages/otpverify/OtpVerify'
 import ChangePassword from '../pages/changepassword/ChangePassword'
 import ForgotPassword from '../pages/forgetpassword/ForgetPassword'
 import ResetPassword from '../pages/resetpassword/ResetPassword'
+import ChatPage from '../pages/chatpage/ChatPage'
 
 const Router = () => {
   return (
@@ -50,6 +51,14 @@ const Router = () => {
         </Route>
         <Route path="/forgot-password" element={<ForgotPassword />} />
         < Route path="/reset-password" element={<ResetPassword />} />
+        <Route
+  path="/chat"
+  element={
+    <PrivateRoute>
+      <ChatPage />
+    </PrivateRoute>
+  }
+/>
       </Routes>
     </BrowserRouter>
   )

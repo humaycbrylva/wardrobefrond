@@ -14,6 +14,8 @@ const Register = () => {
     profileImage: null,
   });
 
+  const [message, setMessage] = useState('');
+  const [messageType, setMessageType] = useState(''); // 'success' or 'error'
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -34,26 +36,36 @@ const Register = () => {
 
     try {
       const res = await axios.post('http://localhost:5000/api/auth/register', data);
-      alert(res.data.message);
-      navigate('/verify');
+      setMessage(res.data.message);
+      setMessageType('success');
+      setTimeout(() => navigate('/verify'), 1500);
     } catch (err) {
-      alert(err.response?.data?.message || 'Xəta baş verdi');
+      setMessage(err.response?.data?.message || 'Xəta baş verdi');
+      setMessageType('error');
     }
   };
 
   return (
     <div className={styles.registerContainer}>
       <form className={styles.registerForm} onSubmit={handleSubmit}>
-        <h2>Qeydiyyat</h2>
-        <input type="text" name="name" placeholder="Ad" onChange={handleChange} required />
+        <h2>Sign in</h2>
+
+        {message && (
+          <div className={`${styles.messageBox} ${styles[messageType]}`}>
+            {message}
+          </div>
+        )}
+
+        <input type="text" name="name" placeholder="Name" onChange={handleChange} required />
         <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
-        <input type="password" name="password" placeholder="Şifrə" onChange={handleChange} required />
+        <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
         <input type="password" name="confirmPassword" placeholder="Təkrar Şifrə" onChange={handleChange} required />
-        
+
         <select name="gender" onChange={handleChange} required>
           <option value="">Cinsiyyət seçin</option>
-          <option value="male">Kişi</option>
-          <option value="female">Qadın</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
         </select>
 
         <input type="text" name="style" placeholder="Geyim stili" onChange={handleChange} />

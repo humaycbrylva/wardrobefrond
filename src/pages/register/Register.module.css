@@ -7,7 +7,7 @@
 }
 
 .registerForm {
-  margin-top: 10%;
+  margin-top: 6%;
   background-color: white;
   padding: 40px;
   border-radius: 12px;
@@ -15,6 +15,25 @@
   width: 100%;
   max-width: 500px;
 }
+
+.messageBox {
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
 
 .registerForm h2 {
   text-align: center;

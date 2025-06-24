@@ -35,6 +35,7 @@ const Header = () => {
                 <Link className={styles.link1} to="/closet">Closet</Link>
                 <Link className={styles.link1} to="/planner">Planner</Link>
                 <Link className={styles.link1} to="/profile">Profile</Link>
+                <Link to="/chat">Mesajlar</Link>
               </div>
             )}
           </div>
