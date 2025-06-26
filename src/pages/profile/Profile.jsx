@@ -75,6 +75,10 @@ const Profile = () => {
 >
   Şifrəni dəyiş
 </button>
+<button onClick={() => navigate('/closet')} className={styles.closetButton}>
+  👗 Mənim Dolabım
+</button>
+
       </div>
     </div>
   );

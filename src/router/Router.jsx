@@ -12,6 +12,7 @@ import ChangePassword from '../pages/changepassword/ChangePassword'
 import ForgotPassword from '../pages/forgetpassword/ForgetPassword'
 import ResetPassword from '../pages/resetpassword/ResetPassword'
 import ChatPage from '../pages/chatpage/ChatPage'
+import Closet from '../pages/closet/Closet'
 
 const Router = () => {
   return (
@@ -19,6 +20,7 @@ const Router = () => {
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<Home />} />
+          <Route path='/closet' element={<Closet/>}/>
           <Route path='/login' element={<Login />} />
           <Route path='/signin' element={<Register />} />
           <Route path='/verify' element={<OtpVerify />} />
