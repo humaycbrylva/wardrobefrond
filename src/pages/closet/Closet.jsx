@@ -14,7 +14,11 @@ const Closet = () => {
   const [editingId, setEditingId] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState('Köynək');
 
-  const categoryOptions = ['Köynək','Canta', 'Don', 'Cins', 'Ayaqqabı', 'Ətək', 'Papaq', 'Şalvar'];
+  const [selectedBrand, setSelectedBrand] = useState('');
+  const [selectedSize, setSelectedSize] = useState('');
+  const [selectedColor, setSelectedColor] = useState('');
+
+  const categoryOptions = ['Köynək', 'Canta', 'Don', 'Cins', 'Ayaqqabı', 'Ətək', 'Papaq', 'Şalvar'];
 
   useEffect(() => {
     fetchClothes();
@@ -34,6 +38,12 @@ const Closet = () => {
     acc[item.category].push(item);
     return acc;
   }, {});
+
+  const filteredItems = (groupedClothes[selectedCategory] || []).filter(item =>
+    (selectedBrand ? item.brand === selectedBrand : true) &&
+    (selectedSize ? item.size === selectedSize : true) &&
+    (selectedColor ? item.color === selectedColor : true)
+  );
 
   const handleAdd = async (e) => {
     e.preventDefault();
@@ -122,18 +132,59 @@ const Closet = () => {
             <div
               key={idx}
               className={`${styles.categoryBox} ${selectedCategory === cat ? styles.selected : ''}`}
-              onClick={() => setSelectedCategory(cat)}
+              onClick={() => {
+                setSelectedCategory(cat);
+                setSelectedBrand('');
+                setSelectedSize('');
+                setSelectedColor('');
+              }}
             >
               <img src={`/images/categories/${cat.toLowerCase()}.png`} alt={cat} />
-              <span>{cat}</span>
+              <div className={styles.categoryBoxOverlayCenter}>{cat}</div>
             </div>
           ))}
         </div>
 
         <div className={styles.clothesDisplayPanel}>
           <h3>{selectedCategory}</h3>
+
+          <div className={styles.filters}>
+            <select value={selectedBrand} onChange={(e) => setSelectedBrand(e.target.value)}>
+              <option value="">Bütün markalar</option>
+              {[...new Set(groupedClothes[selectedCategory]?.map(i => i.brand))].map((b, i) => (
+                <option key={i} value={b}>{b}</option>
+              ))}
+            </select>
+
+            <select value={selectedSize} onChange={(e) => setSelectedSize(e.target.value)}>
+              <option value="">Bütün ölçülər</option>
+              {[...new Set(groupedClothes[selectedCategory]?.map(i => i.size))].map((s, i) => (
+                <option key={i} value={s}>{s}</option>
+              ))}
+            </select>
+
+            <select value={selectedColor} onChange={(e) => setSelectedColor(e.target.value)}>
+              <option value="">Bütün rənglər</option>
+              {[...new Set(groupedClothes[selectedCategory]?.map(i => i.color))].map((c, i) => (
+                <option key={i} value={c}>{c}</option>
+              ))}
+            </select>
+
+            <button
+              type="button"
+              className={styles.resetButton}
+              onClick={() => {
+                setSelectedBrand('');
+                setSelectedSize('');
+                setSelectedColor('');
+              }}
+            >
+              Sıfırla
+            </button>
+          </div>
+
           <div className={styles.clothesList}>
-            {groupedClothes[selectedCategory]?.map((item) => (
+            {filteredItems.map((item) => (
               <div key={item._id} className={styles.clothingItem}>
                 <img src={`http://localhost:5000/closet/${item.image}`} alt="geyim" />
                 <p><strong>Marka:</strong> {item.brand}</p>

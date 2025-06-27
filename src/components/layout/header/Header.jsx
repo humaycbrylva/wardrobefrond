@@ -2,24 +2,28 @@ import React, { useState } from 'react';
 import styles from './Header.module.css';
 import logo from '../../../assets/logos.png';
 import logo1 from '../../../assets/enter_14497994.png';
-
-import { Link, useNavigate } from 'react-router-dom'; // düzəliş
+import { Link, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import { FaHome } from 'react-icons/fa';
+import { logout } from '../../../redux/reducers/userSlice';
 
 const Header = () => {
   const [showSubmenu, setShowSubmenu] = useState(false);
-   const navigate = useNavigate();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user.user);
 
   const handleLogout = () => {
-    localStorage.removeItem('accessToken');
+    dispatch(logout());
     navigate('/login');
   };
+
   return (
     <div>
       <nav className={styles.nav}>
         <div className={styles.navdiv}>
 
-          {/* SOL TƏRƏF – Yalnız HOME, hover zamanı submenu */}
+          {/* SOL TƏRƏF – HOME və Submenu */}
           <div
             className={styles.left}
             onMouseEnter={() => setShowSubmenu(true)}
@@ -30,12 +34,14 @@ const Header = () => {
 
             {showSubmenu && (
               <div className={styles.submenu}>
-                <Link className={styles.link1} to="/admin">Admin</Link>
+                {user?.isAdmin && (
+                  <Link className={styles.link1} to="/admin">Admin Panel</Link>
+                )}
                 <Link className={styles.link1} to="/users">User List</Link>
                 <Link className={styles.link1} to="/closet">Closet</Link>
                 <Link className={styles.link1} to="/planner">Planner</Link>
                 <Link className={styles.link1} to="/profile">Profile</Link>
-                <Link to="/chat">Mesajlar</Link>
+                <Link className={styles.link1} to="/chat">Mesajlar</Link>
               </div>
             )}
           </div>
@@ -45,19 +51,22 @@ const Header = () => {
             <img src={logo} alt="Wardrobe+ Logo" />
           </div>
 
-          {/* SAĞ – Login və Register */}
+          {/* SAĞ – LOGIN/SIGNIN və ya ÇIXIŞ */}
           <div className={styles.login}>
-            <div className={styles.right}>
-            <img src={logo1} alt="Login Icon" />
-            <Link className={styles.link2} to="/login">LOGIN</Link>
-            <h1>/</h1>
-            <Link className={styles.link2} to="/signin">SIGNIN</Link>
-            
+            {user ? (
+              <div className={styles.right}>
+                <span className={styles.link2}>{user.name}</span>
+                <button className={styles.btn1} onClick={handleLogout}>ÇIXIŞ</button>
+              </div>
+            ) : (
+              <div className={styles.right}>
+                <img src={logo1} alt="Login Icon" />
+                <Link className={styles.link2} to="/login">LOGIN</Link>
+                <h1>/</h1>
+                <Link className={styles.link2} to="/signin">SIGNIN</Link>
+              </div>
+            )}
           </div>
-          <button className={styles.btn1} onClick={handleLogout}>ÇIXIŞ</button>
-
-          </div>
-          
 
         </div>
       </nav>
@@ -66,4 +75,3 @@ const Header = () => {
 };
 
 export default Header;
-

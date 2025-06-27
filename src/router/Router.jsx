@@ -13,6 +13,7 @@ import ForgotPassword from '../pages/forgetpassword/ForgetPassword'
 import ResetPassword from '../pages/resetpassword/ResetPassword'
 import ChatPage from '../pages/chatpage/ChatPage'
 import Closet from '../pages/closet/Closet'
+import adminRoutes from './adminRoutes' // ✅ Admin routelar əlavə edildi
 
 const Router = () => {
   return (
@@ -20,11 +21,11 @@ const Router = () => {
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path='/closet' element={<Closet/>}/>
+          <Route path='/closet' element={<Closet />} />
           <Route path='/login' element={<Login />} />
           <Route path='/signin' element={<Register />} />
           <Route path='/verify' element={<OtpVerify />} />
-
+          
           {/* Qorunan səhifələr */}
           <Route
             path="/profile"
@@ -51,19 +52,24 @@ const Router = () => {
             }
           />
         </Route>
+
         <Route path="/forgot-password" element={<ForgotPassword />} />
-        < Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
         <Route
-  path="/chat"
-  element={
-    <PrivateRoute>
-      <ChatPage />
-    </PrivateRoute>
-  }
-/>
+          path="/chat"
+          element={
+            <PrivateRoute>
+              <ChatPage />
+            </PrivateRoute>
+          }
+        />
+
+        {/* ✅ Admin səhifələr üçün routelar */}
+        {adminRoutes}
       </Routes>
     </BrowserRouter>
   )
 }
 
 export default Router
+
