@@ -38,9 +38,15 @@ const userSlice = createSlice({
         state.user = action.payload;
       })
       .addCase(fetchMe.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.error.message;
-      });
+  state.loading = false;
+  state.error = action.error.message;
+  state.user = null;
+
+  // 🔥 Token və userId silinsin
+  localStorage.removeItem('accessToken');
+  localStorage.removeItem('userId');
+});
+
   },
 });
 

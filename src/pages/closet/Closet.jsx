@@ -2,9 +2,12 @@ import React, { useEffect, useState } from 'react';
 import styles from './Closet.module.css';
 import axios from '../../services/axiosInstance';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 const Closet = () => {
-  const user = useSelector((state) => state.user.user);
+  const loggedInUser = useSelector((state) => state.user.user);
+  const { userId } = useParams(); // admin baxırsa userId olacaq
+  const [targetUser, setTargetUser] = useState(loggedInUser);
   const [clothes, setClothes] = useState([]);
   const [image, setImage] = useState(null);
   const [category, setCategory] = useState('');
@@ -13,7 +16,6 @@ const Closet = () => {
   const [color, setColor] = useState('');
   const [editingId, setEditingId] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState('Köynək');
-
   const [selectedBrand, setSelectedBrand] = useState('');
   const [selectedSize, setSelectedSize] = useState('');
   const [selectedColor, setSelectedColor] = useState('');
@@ -21,8 +23,25 @@ const Closet = () => {
   const categoryOptions = ['Köynək', 'Canta', 'Don', 'Cins', 'Ayaqqabı', 'Ətək', 'Papaq', 'Şalvar'];
 
   useEffect(() => {
-    fetchClothes();
-  }, []);
+    if (!loggedInUser) return;
+
+    if (userId) {
+      fetchTargetUser(); // admin başqasına baxır
+    } else {
+      fetchClothes();
+    }
+  }, [userId]);
+
+  const fetchTargetUser = async () => {
+    try {
+      const res = await axios.get(`/admin/user/${userId}`); // user datanı al
+      setTargetUser(res.data);
+      const closetRes = await axios.get(`/admin/user/${userId}/closet`);
+      setClothes(closetRes.data);
+    } catch (err) {
+      console.error('İstifadəçi və geyimlər alınmadı:', err);
+    }
+  };
 
   const fetchClothes = async () => {
     try {
@@ -66,7 +85,7 @@ const Closet = () => {
   const handleDelete = async (id) => {
     try {
       await axios.delete(`/closet/${id}`);
-      fetchClothes();
+      userId ? fetchTargetUser() : fetchClothes();
     } catch (err) {
       console.error('Silinmədi:', err);
     }
@@ -84,7 +103,7 @@ const Closet = () => {
     try {
       await axios.put(`/closet/${id}`, formData);
       resetForm();
-      fetchClothes();
+      userId ? fetchTargetUser() : fetchClothes();
     } catch (err) {
       console.error('Redaktə olunmadı:', err);
     }
@@ -99,32 +118,35 @@ const Closet = () => {
     setEditingId(null);
   };
 
-  if (!user) return <p>Yüklənir...</p>;
+  if (!loggedInUser) return <p>Yüklənir...</p>;
+  if (loggedInUser.role === 'admin' && !userId) return <p>Admin olaraq bu səhifəyə baxa bilməzsiniz.</p>;
 
   return (
     <div className={styles.container}>
       <div className={styles.profileHeader}>
         <img
-          src={`http://localhost:5000/uploads/${user.profileImage}`}
-          alt={user.profileImage}
+          src={`http://localhost:5000/uploads/${targetUser?.profileImage}`}
+          alt={targetUser?.profileImage}
           className={styles.avatar}
         />
-        <h2>{user.name} - Geyimlərim 👕</h2>
+        <h2>{targetUser?.name} - Geyimlər 👕</h2>
       </div>
 
-      <form onSubmit={editingId ? (e) => handleEdit(e, editingId) : handleAdd} className={styles.form}>
-        <input type="file" onChange={(e) => setImage(e.target.files[0])} required={!editingId} />
-        <select value={category} onChange={(e) => setCategory(e.target.value)} required>
-          <option value="">Kateqoriya seçin</option>
-          {categoryOptions.map((cat, idx) => (
-            <option key={idx} value={cat}>{cat}</option>
-          ))}
-        </select>
-        <input type="text" placeholder="Marka" value={brand} onChange={(e) => setBrand(e.target.value)} required />
-        <input type="text" placeholder="Ölçü" value={size} onChange={(e) => setSize(e.target.value)} required />
-        <input type="text" placeholder="Rəng" value={color} onChange={(e) => setColor(e.target.value)} required />
-        <button type="submit">{editingId ? 'Yadda saxla' : 'Əlavə et'}</button>
-      </form>
+      {loggedInUser._id === targetUser._id && (
+        <form onSubmit={editingId ? (e) => handleEdit(e, editingId) : handleAdd} className={styles.form}>
+          <input type="file" onChange={(e) => setImage(e.target.files[0])} required={!editingId} />
+          <select value={category} onChange={(e) => setCategory(e.target.value)} required>
+            <option value="">Kateqoriya seçin</option>
+            {categoryOptions.map((cat, idx) => (
+              <option key={idx} value={cat}>{cat}</option>
+            ))}
+          </select>
+          <input type="text" placeholder="Marka" value={brand} onChange={(e) => setBrand(e.target.value)} required />
+          <input type="text" placeholder="Ölçü" value={size} onChange={(e) => setSize(e.target.value)} required />
+          <input type="text" placeholder="Rəng" value={color} onChange={(e) => setColor(e.target.value)} required />
+          <button type="submit">{editingId ? 'Yadda saxla' : 'Əlavə et'}</button>
+        </form>
+      )}
 
       <div className={styles.layout}>
         <div className={styles.categoryBoxContainer}>
@@ -190,16 +212,18 @@ const Closet = () => {
                 <p><strong>Marka:</strong> {item.brand}</p>
                 <p><strong>Ölçü:</strong> {item.size}</p>
                 <p><strong>Rəng:</strong> {item.color}</p>
-                <div className={styles.actions}>
-                  <button onClick={() => {
-                    setEditingId(item._id);
-                    setCategory(item.category);
-                    setBrand(item.brand);
-                    setSize(item.size);
-                    setColor(item.color);
-                  }}>✏️</button>
-                  <button onClick={() => handleDelete(item._id)}>🗑️</button>
-                </div>
+                {loggedInUser._id === targetUser._id && (
+                  <div className={styles.actions}>
+                    <button onClick={() => {
+                      setEditingId(item._id);
+                      setCategory(item.category);
+                      setBrand(item.brand);
+                      setSize(item.size);
+                      setColor(item.color);
+                    }}>✏️</button>
+                    <button onClick={() => handleDelete(item._id)}>🗑️</button>
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -210,6 +234,3 @@ const Closet = () => {
 };
 
 export default Closet;
-
-
-

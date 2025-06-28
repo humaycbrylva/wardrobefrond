@@ -5,6 +5,8 @@ import AdminLayout from '../components/layout/AdminLayout';
 import AdminPanel from '../pages/admin/AdminPanel';
 import Users from '../pages/admin/Users';
 import Dashboard from '../pages/admin/Dashboard';
+import UserList from '../pages/admin/UserList';
+import Products from '../pages/admin/Products';
 
 const adminRoutes = [
   <Route
@@ -19,6 +21,8 @@ const adminRoutes = [
     <Route index element={<Navigate to="dashboard" />} /> {/* redirect to dashboard */}
     <Route path="dashboard" element={<Dashboard />} />
     <Route path="users" element={<AdminPanel />} />
+    <Route path="products" element={<UserList />} />
+<Route path="products/:userId" element={<Products />} />
   </Route>
 ];
 

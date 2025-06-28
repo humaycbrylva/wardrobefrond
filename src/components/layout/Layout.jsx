@@ -10,10 +10,12 @@ const Layout = () => {
   const { user, loading } = useSelector((state) => state.user);
 
   useEffect(() => {
-    if (!user) {
-      dispatch(fetchMe());
-    }
-  }, [user, dispatch]);
+  const token = localStorage.getItem('accessToken');
+  if (!user && token) {
+    dispatch(fetchMe());
+  }
+}, [user, dispatch]);
+
 
   if (loading) {
     return <div>Yüklənir...</div>;
