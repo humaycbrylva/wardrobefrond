@@ -1,0 +1,104 @@
+/* AdminPanel.module.css */
+
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  background-color: #524ae4; /* İstədiyin rəng */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  user-select: none;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  letter-spacing: 1.2px;
+  text-align: center;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  flex-grow: 1;
+}
+
+.nav a,
+.nav button {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 18px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.nav a:hover,
+.nav button:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.nav a.active {
+  background-color: #3a35b8; /* Aktiv link üçün tünd ton */
+  box-shadow: inset 4px 0 0 0 #7a78f5;
+}
+
+.icon {
+  font-size: 18px;
+  min-width: 20px;
+  color: white;
+}
+
+.logout {
+  margin-top: auto;
+  border-radius: 8px;
+  font-weight: 700;
+  background-color: #e63946;
+  color: white;
+  padding: 12px 18px;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.logout:hover {
+  background-color: #b52a36;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 60px;
+    padding: 20px 10px;
+  }
+
+  .nav a,
+  .nav button {
+    justify-content: center;
+    padding: 10px 0;
+    font-size: 0; /* Yalnız ikonlar görünür */
+  }
+
+  .icon {
+    font-size: 22px;
+  }
+
+  .logo {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+}

@@ -7,6 +7,7 @@ import Users from '../pages/admin/Users';
 import Dashboard from '../pages/admin/Dashboard';
 import UserList from '../pages/admin/UserList';
 import Products from '../pages/admin/Products';
+import Categories from '../pages/admin/Categories';
 
 const adminRoutes = [
   <Route
@@ -22,7 +23,8 @@ const adminRoutes = [
     <Route path="dashboard" element={<Dashboard />} />
     <Route path="users" element={<AdminPanel />} />
     <Route path="products" element={<UserList />} />
-<Route path="products/:userId" element={<Products />} />
+    <Route path="products/:userId" element={<Products />} />
+    <Route path="/admin/categories" element={<Categories />} />
   </Route>
 ];
 

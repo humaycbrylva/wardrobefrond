@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from '../../services/axiosInstance'
-import styles from './AdminPanel.module.css'
+import styles from './UserList.module.css'
 
 const UserList = () => {
   const [users, setUsers] = useState([]);

@@ -1,6 +1,6 @@
 /* AdminPanel.module.css */
 
-.adminPanel {
+.wrapper {
   padding: 25px 35px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f9fafb;
@@ -8,18 +8,19 @@
   color: #222;
 }
 
-.adminPanel h2 {
+.wrapper h2 {
   margin-bottom: 30px;
   font-weight: 700;
-  color: #524ae4; /* İstədiyin rəng */
+  color: #524ae4;
 }
 
+/* Cədvəl stili */
 .table {
   width: 100%;
   border-collapse: collapse;
   background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   overflow: hidden;
 }
 
@@ -37,15 +38,9 @@
   vertical-align: middle;
 }
 
+/* Hover effektli sətir */
 .table tbody tr:hover {
-  background-color: #d6d2f9; /* Hoverda yüngül rəng */
-}
-
-.table img {
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
-  border-radius: 50%;
+  background-color: #d6d2f9;
 }
 
 /* Düymələr */
@@ -81,16 +76,12 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .wrapper {
+    padding: 15px 20px;
+  }
   .table th,
   .table td {
     padding: 12px 14px;
     font-size: 13px;
   }
-
-  .table button {
-    padding: 5px 10px;
-    font-size: 12px;
-  }
 }
-
-

@@ -1,0 +1,100 @@
+/* AdminPanel.module.css */
+
+.dashboard {
+  padding: 25px 35px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9fafb;
+  min-height: 100vh;
+  color: #222;
+}
+
+.dashboard h2 {
+  margin-bottom: 30px;
+  font-weight: 700;
+  color: #524ae4;
+}
+
+.cards {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: white;
+  flex: 1 1 220px;
+  max-width: 230px;
+  min-height: 120px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  padding: 20px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.card h3 {
+  margin: 0 0 14px 0;
+  font-size: 20px;
+  color: #524ae4;
+}
+
+.card p {
+  font-size: 32px;
+  font-weight: 700;
+  color: #3a35b8;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.table thead {
+  background-color: #524ae4;
+  color: white;
+}
+
+.table th,
+.table td {
+  padding: 14px 20px;
+  font-size: 14px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+  vertical-align: middle;
+}
+
+.table tbody tr:hover {
+  background-color: #d6d2f9;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .cards {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .card {
+    max-width: 100%;
+  }
+
+  .table th,
+  .table td {
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+}

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from '../../services/axiosInstance';
-import styles from './AdminPanel.module.css';
+import styles from './Dashboard.module.css';
 
 const Dashboard = () => {
   const [stats, setStats] = useState({});
@@ -9,15 +9,17 @@ const Dashboard = () => {
 
   useEffect(() => {
     const fetchStats = async () => {
-      try {
-        const res = await axios.get('/admin/stats');
-        setStats(res.data);
-        setLatestUsers(res.data.latestUsers || []);
-        setLatestProducts(res.data.latestProducts || []);
-      } catch (err) {
-        console.error('Statistik məlumatlar alınmadı:', err);
-      }
-    };
+  try {
+    const res = await axios.get('/admin/stats');
+    console.log('Stats API response:', res.data); // buraya bax
+    setStats(res.data);
+    setLatestUsers(res.data.latestUsers || []);
+    setLatestProducts(res.data.latestProducts || []);
+  } catch (err) {
+    console.error('Statistik məlumatlar alınmadı:', err);
+  }
+};
+
     fetchStats();
   }, []);
 

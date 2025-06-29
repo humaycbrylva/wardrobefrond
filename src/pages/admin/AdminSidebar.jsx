@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './AdminPanel.module.css';
+import styles from './AdminSidebar.module.css';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { FaUser, FaThLarge, FaSignOutAlt, FaList, FaChartBar } from 'react-icons/fa';
 

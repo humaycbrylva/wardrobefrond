@@ -1,0 +1,143 @@
+/* Products komponentinin əsas wrapper-i */
+.wrapper {
+  padding: 25px 35px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9fafb;
+  min-height: 100vh;
+  color: #222;
+}
+
+/* Geri düyməsi üçün sadə margin */
+.wrapper > button {
+  margin-bottom: 25px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #524ae4;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.wrapper > button:hover {
+  color: #3a35b8;
+}
+
+/* Başlıqlar */
+h2 {
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #524ae4;
+}
+
+/* Grid layout - sabit sütun eni ilə */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 250px); /* Hər kart 250px enində */
+  gap: 24px;
+  justify-content: start; /* Soldan başla */
+  margin-bottom: 40px;
+}
+
+/* Kart özü - sabit ölçü */
+.card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.3s ease;
+
+  width: 250px;     /* Sabit eni */
+  height: 350px;    /* Sabit hündürlük */
+  box-sizing: border-box;
+}
+
+/* Şəkil */
+.productImage {
+  width: 100%;
+  height: 160px;  /* Sabit hündürlük */
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 18px;
+}
+
+/* Mətn */
+.card p {
+  width: 100%;
+  margin: 4px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.card p strong {
+  color: #524ae4;
+}
+
+/* Düymələr sahəsi */
+.actions {
+  margin-top: auto; /* Sonda qalır */
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+/* Düymələr */
+.actions button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  font-size: 13px;
+  color: white;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+.actions button:first-child {
+  background-color: #524ae4;
+}
+
+.actions button:first-child:hover {
+  background-color: #3a35b8;
+}
+
+.actions button:last-child {
+  background-color: #e63946;
+}
+
+.actions button:last-child:hover {
+  background-color: #b52a36;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 15px 20px;
+  }
+  .card {
+    padding: 15px 16px;
+    width: 100%;  /* Mobilda tam eni tutur */
+    height: auto; /* Hündürlük avtomatik */
+  }
+  .productImage {
+    height: 130px;
+  }
+  .actions button {
+    font-size: 12px;
+    padding: 7px 10px;
+  }
+  .grid {
+    grid-template-columns: 1fr; /* Mobilda tək sütun */
+    gap: 18px;
+  }
+}
