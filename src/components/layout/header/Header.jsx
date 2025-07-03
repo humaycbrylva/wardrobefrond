@@ -37,7 +37,7 @@ const Header = () => {
                 {user?.isAdmin && (
                   <Link className={styles.link1} to="/admin">Admin Panel</Link>
                 )}
-                <Link className={styles.link1} to="/users">User List</Link>
+              
                 <Link className={styles.link1} to="/closet">Closet</Link>
                 <Link className={styles.link1} to="/planner">Planner</Link>
                 <Link className={styles.link1} to="/profile">Profile</Link>

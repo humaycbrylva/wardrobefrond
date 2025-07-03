@@ -1,0 +1,70 @@
+/* frontend/components/AdminContactRequests.module.css */
+
+.container {
+  max-width: 720px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #594ee3;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.requestCard {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(89, 78, 227, 0.15);
+  margin-bottom: 1.2rem;
+  padding: 1.2rem 1.5rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.requestCard:hover {
+  box-shadow: 0 4px 14px rgba(89, 78, 227, 0.3);
+}
+
+.requestHeader {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #342e7f;
+  margin-bottom: 0.4rem;
+}
+
+.requestEmail {
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: #6b6b6b;
+  margin-left: 0.4rem;
+}
+
+.requestMessage {
+  font-size: 1rem;
+  color: #4b4b4b;
+  margin: 0.5rem 0 1rem;
+  line-height: 1.4;
+}
+
+.readButton {
+  padding: 0.5rem 1rem;
+  background-color: #594ee3;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.readButton:disabled {
+  background-color: #aaa;
+  cursor: default;
+  color: #f0f0f0;
+}
+
+.readButton:not(:disabled):hover {
+  background-color: #463cc7;
+}

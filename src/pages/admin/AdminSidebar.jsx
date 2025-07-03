@@ -37,6 +37,11 @@ const AdminSidebar = () => {
           Categories
         </NavLink>
 
+        <NavLink to="/admin/contact-requests" className={({ isActive }) => isActive ? styles.active : ''}>
+          <FaChartBar className={styles.icon} />
+          Istek Mesajlari
+        </NavLink>
+
         {/* Daha çox admin səhifəsi əlavə et: payments, comments, notifications və s. */}
 
         <button onClick={handleLogout} className={styles.logout}>

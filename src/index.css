@@ -1,3 +1,7 @@
-body{
-  font-family: "Poppins",sans-serif;
+/* index.css */
+body {
+  font-family: 'Poppins', sans-serif;  /* Və ya istədiyin font */
+  font-size: 16px;
+  color: #333; /* İstəyə bağlı */
 }
+

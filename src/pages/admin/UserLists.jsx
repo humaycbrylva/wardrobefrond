@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from '../../services/axiosInstance'
-import styles from './UserList.module.css'
+import styles from './UserLists.module.css'
 
-const UserList = () => {
+const UserLists = () => {
   const [users, setUsers] = useState([]);
   const navigate = useNavigate();
 
@@ -40,4 +40,4 @@ const UserList = () => {
   );
 };
 
-export default UserList;
+export default UserLists;

@@ -1,0 +1,119 @@
+.trendmodalbackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.trendmodal {
+  background-color: #fff;
+  max-width: 500px;
+  width: 90%;
+  border-radius: 14px;
+  padding: 20px;
+  position: relative;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.trendmodal img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+
+.trendmodal h2 {
+  font-size: 24px;
+  margin: 0 0 10px;
+  color: #594ee3;
+}
+
+.trendmodal p {
+  font-size: 15px;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.closebtn {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  color: #999;
+  cursor: pointer;
+}
+
+.closebtn:hover {
+  color: #222;
+}
+
+.tags {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #e6e0fb;
+  color: #594ee3;
+  border-radius: 6px;
+  padding: 4px 10px;
+  margin: 5px 5px 0 0;
+  font-size: 13px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.editBtn,
+.deleteBtn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.editBtn {
+  background-color: #ebe5fd;
+  color: #594ee3;
+}
+
+.editBtn:hover {
+  background-color: #d5ccfc;
+}
+
+.deleteBtn {
+  background-color: #fce4ec;
+  color: #c2185b;
+}
+
+.deleteBtn:hover {
+  background-color: #f8bbd0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
