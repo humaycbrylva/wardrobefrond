@@ -36,7 +36,6 @@ const Trending = () => {
 
   const handleEdit = (item) => {
     alert(`Edit etmək üçün: ${item.title}`);
-    // Edit modal buradan açılacaq – istəsən əlavə modal/form düzəldək
   };
 
   if (loading) return <div className={styles.loading}>Yüklənir...</div>;
@@ -46,17 +45,20 @@ const Trending = () => {
     <div className={styles.trendingsection}>
       <h2>Ən Trend Parçalar</h2>
       <div className={styles.trendcards}>
-        {trends.slice(0, 6).map((item) => (
+        {trends.slice(0, 9).map((item) => (
           <div key={item._id} className={styles.trendcard}>
             <div className={styles.imagecontainer}>
-              <img src={`http://localhost:5000/trending/${item.image}`} alt={item.title} />
+              <img
+                src={`http://localhost:5000/trending/${item.mainImage}`} // Burada mainImage istifadə olunur
+                alt={item.title}
+              />
               <div className={styles.overlay}>
                 <button onClick={() => setSelectedItem(item)}>Ətraflı bax</button>
               </div>
             </div>
             <div className={styles.trendinfo}>
               <h3>{item.title}</h3>
-              <p>{item.description}</p>
+              <p>{item.brand}</p>
             </div>
           </div>
         ))}

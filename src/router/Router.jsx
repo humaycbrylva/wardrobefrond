@@ -14,6 +14,7 @@ import ResetPassword from '../pages/resetpassword/ResetPassword'
 import ChatPage from '../pages/chatpage/ChatPage'
 import Closet from '../pages/closet/Closet'
 import adminRoutes from './adminRoutes' // ✅ Admin routelar əlavə edildi
+import Planner from '../pages/planner/Planner'
 
 const Router = () => {
   return (
@@ -22,6 +23,7 @@ const Router = () => {
         <Route path='/' element={<Layout />}>
           <Route index element={<Home />} />
           <Route path='/closet' element={<Closet />} />
+          <Route path='/planner' element={<Planner/>}/>
           <Route path='/login' element={<Login />} />
           <Route path='/signin' element={<Register />} />
           <Route path='/verify' element={<OtpVerify />} />

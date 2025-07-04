@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './AdminSidebar.module.css';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { FaUser, FaThLarge, FaSignOutAlt, FaList, FaChartBar } from 'react-icons/fa';
+import { FaMessage } from 'react-icons/fa6';
 
 const AdminSidebar = () => {
   const navigate = useNavigate();
@@ -38,7 +39,7 @@ const AdminSidebar = () => {
         </NavLink>
 
         <NavLink to="/admin/contact-requests" className={({ isActive }) => isActive ? styles.active : ''}>
-          <FaChartBar className={styles.icon} />
+          <FaMessage className={styles.icon} />
           Istek Mesajlari
         </NavLink>
 

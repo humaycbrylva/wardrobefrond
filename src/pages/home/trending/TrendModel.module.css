@@ -2,118 +2,192 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.6);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 999;
+  z-index: 1000;
 }
 
 .trendmodal {
-  background-color: #fff;
-  max-width: 500px;
-  width: 90%;
-  border-radius: 14px;
-  padding: 20px;
+  background-color: white;
+  max-width: 900px;
+  width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 8px;
   position: relative;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-.trendmodal img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 16px;
-}
-
-.trendmodal h2 {
-  font-size: 24px;
-  margin: 0 0 10px;
-  color: #594ee3;
-}
-
-.trendmodal p {
-  font-size: 15px;
-  color: #444;
-  margin-bottom: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .closebtn {
   position: absolute;
+  right: 10px;
   top: 10px;
-  right: 14px;
-  background: transparent;
   border: none;
-  font-size: 24px;
-  color: #999;
+  background: transparent;
+  font-size: 26px;
   cursor: pointer;
 }
 
-.closebtn:hover {
-  color: #222;
+.content {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.imageList {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  max-height: 70vh;
+  border-right: 1px solid #ccc;
+  padding-right: 10px;
+}
+
+.thumb {
+  width: 100%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  object-fit: cover;
+  transition: border-color 0.3s ease;
+}
+
+.activeThumb {
+  border-color: #7b3fe4;
+}
+
+.mainContent {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Title */
+.mainContent h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #7b3fe4;
+  text-align: center;
+  margin: 0 0 12px 0;
+  border-bottom: 3px solid #7b3fe4;
+  padding-bottom: 8px;
+}
+
+/* Info section wrapper */
+.infoSection {
+  background-color: #f6f0ff;
+  border-radius: 8px;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  color: #4b3d7f;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* Info labels */
+.infoSection strong {
+  color: #7b3fe4;
+  font-weight: 600;
+  margin-right: 6px;
+}
+
+/* Main image */
+.mainImage {
+  width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 6px;
+  margin-bottom: 15px;
 }
 
 .tags {
   margin-top: 10px;
-  font-size: 14px;
 }
 
 .tag {
   display: inline-block;
-  background-color: #e6e0fb;
-  color: #594ee3;
-  border-radius: 6px;
-  padding: 4px 10px;
-  margin: 5px 5px 0 0;
-  font-size: 13px;
+  background-color: #7b3fe4;
+  color: white;
+  padding: 4px 8px;
+  margin-right: 6px;
+  border-radius: 12px;
+  font-size: 12px;
 }
 
 .actions {
-  display: flex;
-  justify-content: space-between;
   margin-top: 20px;
-  gap: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
 }
 
-.editBtn,
-.deleteBtn {
-  flex: 1;
-  padding: 10px;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
+.editBtn, .deleteBtn {
   cursor: pointer;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  min-width: 100px;
   transition: background-color 0.3s ease;
 }
 
 .editBtn {
-  background-color: #ebe5fd;
-  color: #594ee3;
+  background-color: #7b3fe4;
+  color: white;
 }
 
 .editBtn:hover {
-  background-color: #d5ccfc;
+  background-color: #5a2bb8;
 }
 
 .deleteBtn {
-  background-color: #fce4ec;
-  color: #c2185b;
+  background-color: #e94e4e;
+  color: white;
 }
 
 .deleteBtn:hover {
-  background-color: #f8bbd0;
+  background-color: #b83a3a;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
+/* Responsive */
+@media (max-width: 700px) {
+  .content {
+    flex-direction: column;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .imageList {
+    flex-direction: row;
+    width: 100%;
+    max-height: none;
+    overflow-x: auto;
+    border-right: none;
+    padding-right: 0;
+    margin-bottom: 15px;
+  }
+
+  .thumb {
+    width: 70px;
+  }
+
+  .mainContent h2 {
+    font-size: 1.5rem;
+  }
+
+  .infoSection {
+    font-size: 0.9rem;
+  }
+
+  .actions button {
+    min-width: 80px;
+    font-size: 13px;
+    padding: 7px 12px;
   }
 }

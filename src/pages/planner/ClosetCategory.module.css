@@ -1,0 +1,104 @@
+.container {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 12px;
+ 
+}
+
+.categoryButton {
+  padding: 8px 12px;
+  background-color: #eee;
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.categoryButton.selected {
+  background-color: #7b3fe4;
+  color: white;
+}
+
+.scrollWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.scrollButton {
+  position: absolute;
+  z-index: 10;
+  background-color: #7b3fe4;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  opacity: 0.8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  user-select: none;
+  transition: opacity 0.3s ease;
+}
+
+.scrollButton:hover {
+  opacity: 1;
+}
+
+.scrollButton.left {
+  left: 0;
+}
+
+.scrollButton.right {
+  right: 0;
+}
+
+.itemsContainer {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 40px; /* sol və sağda düymələr üçün boşluq */
+  scrollbar-width: none; /* Firefox scrollbar gizlətmək üçün */
+  -ms-overflow-style: none; /* IE və Edge */
+}
+
+.itemsContainer::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.itemCard {
+  cursor: pointer;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  width: 140px; /* Böyük şəkillər üçün genişlik artırıldı */
+  text-align: center;
+  flex-shrink: 0;
+  background-color: #fafafa;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.itemCard:hover {
+  box-shadow: 0 6px 12px rgb(0 0 0 / 0.15);
+}
+
+.itemImage {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  aspect-ratio: 3 / 4; /* Təxminən 3:4 nisbəti */
+  object-fit: cover;
+}
+
+.itemTitle {
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+  user-select: none;
+}

@@ -1,0 +1,183 @@
+/* Planner.module.css */
+
+.planner {
+  max-width: 900px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.1);
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  
+}
+
+.textdiv h3{
+    font-size: 20px;
+}
+
+.planner h1 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 28px;
+  margin-bottom: 25px;
+  color: #6c4bf7;
+}
+
+.planner input[type="text"],
+.planner select {
+  width: 48%;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  border: 1.8px solid #ddd;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.planner input[type="text"]:focus,
+.planner select:focus {
+  border-color: #6c4bf7;
+}
+
+.selectedItemsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 10px;
+}
+
+.selectedItem {
+  width: 110px;
+  border: 1.5px solid #ddd;
+  border-radius: 12px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+  cursor: default;
+  background-color: #fafafa;
+  transition: box-shadow 0.3s ease;
+}
+
+.selectedItem:hover {
+  box-shadow: 0 3px 10px rgba(108, 75, 247, 0.4);
+}
+
+.selectedItem img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  object-fit: cover;
+  height: 110px;
+}
+
+.selectedItem span {
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.saveButton {
+  display: block;
+  margin: 25px auto;
+  padding: 12px 30px;
+  background-color: #6c4bf7;
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 6px 12px rgba(108, 75, 247, 0.5);
+}
+
+.saveButton:hover {
+  background-color: #5238d7;
+  box-shadow: 0 8px 16px rgba(82, 56, 215, 0.6);
+}
+
+hr {
+  margin: 30px 0;
+  border: 0.8px solid #eee;
+}
+
+.savedPlan {
+  background-color: #f7f5ff;
+  border: 1.5px solid #ddd;
+  border-radius: 12px;
+  padding: 15px 20px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #4a3eb1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.savedPlan:hover {
+  background-color: #e6deff;
+}
+
+/* Düymələr: Edit və Delete */
+.planButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.planButton {
+  padding: 6px 14px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.editBtn {
+  background-color: #4caf50;
+}
+
+.editBtn:hover {
+  background-color: #3a8a38;
+}
+
+.deleteBtn {
+  background-color: #e74c3c;
+}
+
+.deleteBtn:hover {
+  background-color: #c0392b;
+}
+
+/* Responsive */
+@media (max-width: 620px) {
+  .planner {
+    padding: 20px 15px;
+  }
+
+  .planner input[type="text"],
+  .planner select {
+    width: 100%;
+  }
+
+  .selectedItemsContainer {
+    justify-content: center;
+  }
+
+  .savedPlan {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}

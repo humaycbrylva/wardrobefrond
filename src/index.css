@@ -5,3 +5,130 @@ body {
   color: #333; /* İstəyə bağlı */
 }
 
+
+:root {
+  /* Light mode colors */
+  --bg-color: #f5f3ff;          /* çox açıq lavanda */
+  --text-color: #2a2a44;        /* tünd mavimsi bənövşəyi */
+  --nav-bg: #d6cbff;            /* açıq lavanda / pastel purple */
+  --link-color: #594ee3;        /* əsas parlaq purple */
+  --btn-bg: #594ee3;
+  --btn-hover-bg: #4b43c6;
+  --input-bg: #fff;
+  --input-border: #bbb;
+  --input-focus-border: #594ee3;
+
+  /* Card background, borders */
+  --card-bg: #faf9ff;
+  --card-border: #d1caff;
+  
+  /* Badge color */
+  --badge-bg: #7e71ff;
+}
+
+[data-theme='dark'] {
+  /* Dark mode colors */
+  --bg-color: #1f1b2e;          /* çox tünd lavanda-mavi */
+  --text-color: #dcd6f7;        /* açıq lavanda rəngi */
+  --nav-bg: #3a2f5a;            /* tünd pastel purple */
+  --link-color: #a69fff;        /* açıq lilac */
+  --btn-bg: #7e71ff;
+  --btn-hover-bg: #5f56cc;
+  --input-bg: #2e2a44;
+  --input-border: #7e71ff;
+  --input-focus-border: #a69fff;
+
+  --card-bg: #2f2a4a;
+  --card-border: #5f56cc;
+
+  --badge-bg: #a69fff;
+}
+
+/* Genel body ve transition */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Navbar */
+nav {
+  background-color: var(--nav-bg);
+  transition: background-color 0.3s ease;
+}
+
+/* Linkler */
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--btn-hover-bg);
+}
+
+/* Buttons */
+button {
+  background-color: var(--btn-bg);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--btn-hover-bg);
+}
+
+/* Inputs and textarea */
+input, textarea {
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  border: 1.5px solid var(--input-border);
+  border-radius: 6px;
+  padding: 8px;
+  outline-offset: 2px;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--input-focus-border);
+  background-color: var(--card-bg);
+}
+
+/* Cards */
+.card, .trendcard {
+  background-color: var(--card-bg);
+  border: 1.5px solid var(--card-border);
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(89, 78, 227, 0.15);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Badge */
+.badge {
+  background-color: var(--badge-bg);
+  color: white;
+  padding: 3px 8px;
+  font-size: 0.8rem;
+  border-radius: 9999px;
+  margin-left: 6px;
+  font-weight: 600;
+}
+
+
+/* Chrome, Edge, Safari */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+

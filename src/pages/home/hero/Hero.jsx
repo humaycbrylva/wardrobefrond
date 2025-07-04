@@ -1,5 +1,5 @@
 import React from 'react';
-import backgroundImage from '../../../assets/page1.png';
+import backgroundImage from '../../../assets/hero3.png';
 import styles from './Hero.module.css';
 import Slider from 'react-slick';
 import wardrobe from '../../../assets/locker_18013906.png'
